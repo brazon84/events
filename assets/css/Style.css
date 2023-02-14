@@ -17,9 +17,15 @@
 
 @media(min-width:320px) {
 
+    
     header {
-        background-color: var(--cremita);
-        
+        background-image:url(/assets/img/fondo1.png.jpg);
+    }
+    .title_table{
+        background-color: var(--red);
+    }
+    .title_table h2{
+        color: var(--cremita);
     }
 
     .nav {
@@ -31,7 +37,7 @@
     }
 
     .logo img {
-        max-width:200px;
+        max-width: 200px;
         margin-left: 40px;
         margin-top: 40px;
         margin-bottom: 25px;
@@ -62,14 +68,18 @@
         background-color: var(--cremita);
         transform: scale(1.2);
     }
-
+    .d-flex input{
+        width: 500px;
+        height: 50px;
+    }
+    
     .title {
         display: flex;
         justify-content: space-between;
         text-align: center;
         align-items: center;
         background-color: var(--red);
-    
+
     }
 
     .title h1 {
@@ -114,7 +124,7 @@
     }
 
     .search {
-       min-width:300px;
+        min-width: 300px;
         display: flex;
         align-items: center;
         text-align: right;
@@ -136,7 +146,7 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        
+
     }
 
     .cards {
@@ -144,7 +154,7 @@
         flex-direction: column;
         text-align: center;
         background-color: var(--red);
-       max-width: 300px;
+        max-width: 300px;
     }
 
     .cards div a img:hover {
@@ -174,7 +184,7 @@
 
     .cards img {
         margin-top: 25px;
-       max-width: 200px;
+        max-width: 200px;
         height: 250px;
     }
 
@@ -197,7 +207,6 @@
         display: flex;
         flex-direction: column;
         text-align: center;
-        flex-shrink: 30px;
         align-items: center;
         gap: 30px;
         width: 100%;
@@ -281,34 +290,37 @@
     }
 
 }
-@media(min-width:768px){
-.categori_checkbox{
-    display: flex;
-    flex-direction: row;
-}
-.social{
-    flex-direction: row;
-    justify-content: center;
-}
+@media(min-width:768px) {
+    .categori_checkbox {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .social {
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 
-@media(min-width:1200px){
-    .nav{
+@media(min-width:1200px) {
+    .nav {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        align-items: center;  
+        align-items: center;
     }
-    .logo img{
+
+    .logo img {
         min-width: 300px;
     }
-    .categori{
+
+    .categori {
         display: flex;
         flex-direction: row;
     }
-    footer{
+
+    footer {
         flex-direction: row;
         display: flex;
     }
 }
-
