@@ -123,16 +123,6 @@
         border: 1px solid #000;
     }
 
-    .search {
-        min-width: 300px;
-        display: flex;
-        align-items: center;
-        text-align: right;
-        justify-content: flex-end;
-        height: 30px;
-        gap: 20px;
-    }
-
     .contac {
         display: flex;
         flex-direction: column;
@@ -208,12 +198,21 @@
         flex-direction: column;
         text-align: center;
         align-items: center;
-        gap: 30px;
+        gap: 20px;
         width: 100%;
         max-width: 400px;
         justify-content: center;
         margin: 0 auto;
         margin-top: 50px;
+        border: 2px solid var(--crema);
+        border-radius: 10%;
+        background-color: var(--red);
+    }
+    .submit>.contac{
+        background-color: var(--cremita);
+        color: var(--red);
+        border-radius: 10%;
+        
     }
 
     .contac input {
@@ -244,12 +243,14 @@
     th {
         font-size: 25px;
         line-height: 60px;
+
     }
 
     td {
         font-size: 20px;
         width: 20%;
         font-weight: 700;
+        background-color: var(--crema);
     }
 
     footer {
