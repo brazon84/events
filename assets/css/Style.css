@@ -26,6 +26,7 @@
     }
     .title_table h2{
         color: var(--cremita);
+        font-family: 'Indie Flower', cursive;
     }
 
     .nav {
@@ -34,6 +35,7 @@
         flex-direction: column;
         text-align: center;
         align-items: center;
+        font-family: 'Indie Flower', cursive;
     }
 
     .logo img {
@@ -50,6 +52,7 @@
         margin-right: 20px;
         gap: 20px;
         flex-wrap: wrap;
+        font-family: 'Indie Flower', cursive;
     }
 
     .menu a {
@@ -57,11 +60,13 @@
         font-size: 30px;
         border: 1px solid var(--cremita);
         border-radius: 10%;
+        font-family: 'Indie Flower', cursive;
     }
 
     .menu_item {
         color: var(--red);
         border-radius: 10%;
+        font-family: 'Indie Flower', cursive;
     }
 
     .menu_item:hover {
@@ -79,12 +84,14 @@
         text-align: center;
         align-items: center;
         background-color: var(--red);
+        font-family: 'Indie Flower', cursive;
 
     }
 
     .title h1 {
         font-size: 80px;
         color: var(--crema);
+        font-family: 'Indie Flower', cursive;
     }
 
     .scrolling i {
@@ -107,6 +114,7 @@
         margin: 30px;
         align-items: center;
         flex-direction: column;
+        font-family: 'Indie Flower', cursive;
     }
 
     .categori_checkbox {
@@ -114,6 +122,7 @@
         font-size: 30px;
         gap: 30px;
         flex-direction: column;
+        font-family: 'Indie Flower', cursive;
     }
 
     input[type="checkbox"] {
@@ -127,6 +136,7 @@
         display: flex;
         flex-direction: column;
         font-size: 40px;
+        font-family: 'Indie Flower', cursive;
     }
 
     .section {
@@ -136,7 +146,7 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-
+        font-family: 'Indie Flower', cursive;
     }
 
     .cards {
@@ -145,6 +155,7 @@
         text-align: center;
         background-color: var(--red);
         max-width: 300px;
+        font-family: 'Indie Flower', cursive;
     }
 
     .cards div a img:hover {
@@ -156,6 +167,7 @@
         gap: 50px;
         justify-content: center;
         align-items: center;
+        font-family: 'Indie Flower', cursive;
     }
 
     .img_details img {
@@ -170,6 +182,7 @@
         font-size: 40px;
 
         text-align: center;
+        font-family: 'Indie Flower', cursive;
     }
 
     .cards img {
@@ -191,6 +204,7 @@
         margin-top: 30px;
         margin-bottom: 30px;
         font-size: 20px;
+        font-family: 'Indie Flower', cursive;
     }
 
     .form {
@@ -207,12 +221,17 @@
         border: 2px solid var(--crema);
         border-radius: 10%;
         background-color: var(--red);
+        font-family: 'Indie Flower', cursive;
     }
     .submit>.contac{
         background-color: var(--cremita);
         color: var(--red);
+        border-radius: 10%; 
+    }
+    .submit_price{
+        background-color: var(--cremita);
+        color: var(--red);
         border-radius: 10%;
-        
     }
 
     .contac input {
@@ -230,6 +249,7 @@
         align-items: center;
         text-align: center;
         margin: 0 auto;
+        font-family: 'Indie Flower', cursive;
 
     }
 
@@ -259,6 +279,7 @@
         text-align: center;
         justify-content: space-around;
         flex-direction: column;
+        font-family: 'Indie Flower', cursive;
     }
 
     .social {
@@ -268,6 +289,7 @@
         margin-top: 40px;
         margin-bottom: 20px;
         flex-direction: column;
+        font-family: 'Indie Flower', cursive;
     }
 
     .social_item i {
