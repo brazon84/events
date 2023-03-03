@@ -1,33 +1,35 @@
-import { data } from './data.js'
+import { data } from './data.js';
 
-const eventsWithAssistance = data.events.filter(event => event.assistance);
 
-const pastEvents = document.getElementById('assistances-container')
+let capturedElement = document.getElementById("Past");
 
-const eventsWithAssistanceHTML = eventsWithAssistance.map(event => `
-<div class="cards">
-<div>
-    <a href="/assets/Details.html">
-        <img src="${event.image}" alt="${event.name}">
+let cards = ``;
+
+let currentDate = data.currentDate;
+
+for (let event of data.events) {
+    if (event.date < currentDate) {
+        let cardTemplate = `
+  <div class="cards">
+  <div>
+    <a href="./assets/Details.html" data-event-index="${event._id}">
+      <img src="${event.image}" alt="${event.name}">
     </a>
-</div>
-<h2>
-${event.name}
-</h2>
-<h3>
-${event.description}
-</h3>
-<div class="price">
+  </div>
+  <h2>${event.name}</h2>
+  <h3>${event.description}</h3>
+  <div class="price">
     <div>
-        <p>
-       $ ${event.price}
-        </p>
+      <p>$ ${event.price}</p>
     </div>
     <div>
-        <input class="submit_price" type="submit" value="submit">
+      <input class="submit_price" type="submit" value="submit">
     </div>
-</div>
-</div>
- `).join('');
+  </div>
+</div>`;
+        cards = cards + cardTemplate;
+    }
+}
 
-pastEvents.innerHTML = eventsWithAssistanceHTML;
+capturedElement.innerHTML = cards;
+
