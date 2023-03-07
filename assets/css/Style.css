@@ -16,6 +16,9 @@
 }
 
 @media(min-width:320px) {
+body{
+    font-family: 'Indie Flower', cursive;
+    }
 
     
     header {
@@ -27,22 +30,6 @@
     .title_table h2{
         color: var(--cremita);
         font-family: 'Indie Flower', cursive;
-    }
-
-    .nav {
-        background-color: var(--celeste);
-        display: block;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        font-family: 'Indie Flower', cursive;
-    }
-
-    .logo img {
-        max-width: 200px;
-        margin-left: 40px;
-        margin-top: 40px;
-        margin-bottom: 25px;
     }
 
     div.menu {
@@ -62,7 +49,12 @@
         border-radius: 10%;
         font-family: 'Indie Flower', cursive;
     }
-
+    .details{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        
     .menu_item {
         color: var(--red);
         border-radius: 10%;
@@ -80,7 +72,7 @@
     
     .title {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         text-align: center;
         align-items: center;
         background-color: var(--red);
@@ -89,23 +81,9 @@
     }
 
     .title h1 {
-        font-size: 80px;
+        font-size: 60px;
         color: var(--crema);
         font-family: 'Indie Flower', cursive;
-    }
-
-    .scrolling i {
-        display: flex;
-        width: 100%;
-        height: 150px;
-        text-decoration: none;
-        align-items: center;
-        font-size: 90px;
-        color: var(--cremita);
-        justify-content: center;
-        text-align: center;
-        margin-top: 10px;
-        background-color: var(--red);
     }
 
     .categori {
@@ -116,6 +94,7 @@
         flex-direction: column;
         font-family: 'Indie Flower', cursive;
     }
+    
 
     .categori_checkbox {
         display: flex;
@@ -137,6 +116,7 @@
         flex-direction: column;
         font-size: 40px;
         font-family: 'Indie Flower', cursive;
+        
     }
 
     .section{
@@ -148,96 +128,70 @@
         font-family: 'Indie Flower', cursive;
     }
 
-    .cards {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        background-color: var(--red);
-        max-width: 300px;
-        font-family: 'Indie Flower', cursive;
-        object-fit: contain;
-    }
-
-    .cards div a img:hover {
-        transform: scale(1.1);
-    }
-
-    .details {
-        display: flex;
-        gap: 50px;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Indie Flower', cursive;
-    }
-
-    .img_details img {
-        margin-top: 40px;
-        width: 300px;
-        height: 500px;
-        border: 4px solid var(--vino);
-        margin-bottom: 40px;
-    }
-
-    .title_details {
-        font-size: 40px;
-
-        text-align: center;
-        font-family: 'Indie Flower', cursive;
-    }
-
-    .cards img {
-        margin-top: 25px;
-        max-width: 200px;
-        height: 250px;
-    }
-
-    .cards img:hover {
-        transform: rotate (360deg);
-        transition-duration: 2s, 1s;
-    }
-
-    div.price {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        font-size: 20px;
-        font-family: 'Indie Flower', cursive;
-        padding: 0;
-        margin: 0;
-        
-    }
-
     .form {
         display: flex;
         flex-direction: column;
         text-align: center;
         align-items: center;
         gap: 20px;
-        width: 100%;
-        max-width: 400px;
         justify-content: center;
-        margin: 0 auto;
-        margin-top: 50px;
         border: 2px solid var(--crema);
-        border-radius: 10%;
         background-color: var(--red);
         font-family: 'Indie Flower', cursive;
+        width: 460px; 
+        height: auto;
+        margin: 80px auto;
+    	border-radius: 10px;  
+	    padding-top: 30px;
+	    padding-bottom: 20px;   
+        padding-left: 30px; 
     }
-    .submit>.contac{
+    .submit{
         background-color: var(--cremita);
         color: var(--red);
         border-radius: 10%; 
+        height: 45px; 
+        padding-right: 5px; 	
+        margin-bottom: 20px; 
+        margin-top: 10px; 	
+        text-transform: uppercase;
+        border-style: solid; 
+        border-radius: 10px;	
+        width: 420px;   
+        cursor: pointer;
+        padding-left: 5px;
     }
-    .submit_price{
-        background-color: var(--cremita);
-        color: var(--red);
-        border-radius: 10%;
-    }
-
+   
+    
+    .my-button-class {
+        background-color: var(--red);
+      }
+      
+      textarea{
+        background-color: #fbfbfb; 
+          width: 405px; 
+          height: 150px; 
+          border-radius: 5px;  
+          border-style: solid; 
+          border-width: 1px; 
+          border-color: #ab4493; 
+          margin-top: 10px;  
+          padding-left: 10px;
+        margin-bottom: 20px; 
+        padding-top: 15px; 
+      }
+      
     .contac input {
-        width: 100%;
-        height: 50px;
+    
+	width: 408px; 
+	height: 40px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: #ab4493; 
+	margin-top: 10px;  
+	padding-left: 10px;
+  margin-bottom: 20px; 
     }
 
     #text {
@@ -281,6 +235,7 @@
         justify-content: space-around;
         flex-direction: column;
         font-family: 'Indie Flower', cursive;
+        align-content:center;
     }
 
     .social {
@@ -291,21 +246,19 @@
         margin-bottom: 20px;
         flex-direction: column;
         font-family: 'Indie Flower', cursive;
+        list-style: none;
     }
 
     .social_item i {
-        font-size: 50px;
+        font-size: 30px;
         color: var(--vino);
     }
 
     .name {
         margin-top: 40px;
         margin-bottom: 20px;
-    }
-
-    .name p {
-        font-size: 50px;
-        font-weight: 700;
+        font-size: 30px;
+        font-weight: 500;
         color: var(--vino);
     }
 
@@ -320,6 +273,12 @@
         flex-direction: row;
     }
 
+    .card-img-top {
+        width: auto;
+        height:200px;
+        object-fit: cover;
+        overflow: hidden;
+        } 
     .social {
         flex-direction: row;
         justify-content: center;
@@ -358,23 +317,33 @@
         flex-direction: row;
         align-items: center;
     }
-    div.price{
-        align-items: center;
-        align-content: center;
-        top: 0;
-
-    }
 
     .logo img {
         min-width: 300px;
     }
+ 
+    .card-img-top {
+        width: 400px;
+        height:300px;
+        object-fit: cover;
+        } 
+    .main{
+        display:flex;
+        align-items: center;
+        justify-content:space-between;
+        text-align: center;
+        flex-wrap: wrap;
+       
+    }
     .check {
         display: flex;
-        font-size: 20px;
-        gap: 30px;
+        font-size: 15px;
         flex-direction: none;
         font-family: 'Indie Flower', cursive;
         align-items: center;
+    }
+    .categori_checkbox .check{
+        gap:20px
     }
 
     .categori {
@@ -387,5 +356,6 @@
     footer {
         flex-direction: row;
         display: flex;
-    }
+        text-align: center;
+        justify-content: space-between
 }
