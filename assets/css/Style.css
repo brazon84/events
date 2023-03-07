@@ -14,16 +14,16 @@
     --crema: #ced1c0;
     --cremita: #ebe5ce;
 }
-
-@media(min-width:320px) {
 body{
     font-family: 'Indie Flower', cursive;
-    }
-
-    
-    header {
         background-image:url(/assets/img/fondo1.png.jpg);
     }
+    .card{
+        margin: 30px 0;
+
+    }
+@media(min-width:320px) {
+
     .title_table{
         background-color: var(--red);
     }
