@@ -1,4 +1,9 @@
-import { data } from './data.js';
+fetch('https://mindhub-ab35.onrender.com/api/amazing-events')
+.then(response => {
+  //console.log(response);
+  return response.json();
+})
+.then(data => {
 // Selecciona el botón de navegación
 const navbarToggler = document.querySelector('.navbar-toggler');
 
@@ -37,8 +42,12 @@ function printDetails() {
 
 function getCurrentEvent() {
   let eventName = new URLSearchParams(window.location.search).get("eventId");
-  let event = data.events.filter(e => e._id == eventName);
+  let event = data.events.filter(e => e.id == eventName);
   return event;
 }
 printDetails();
 
+})
+.catch(error => {
+console.error(error);
+});

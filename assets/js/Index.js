@@ -1,7 +1,11 @@
-import { data } from '../js/data.js';
-
-let capturedElement = document.getElementById("events-container");
-
+fetch('https://mindhub-ab35.onrender.com/api/amazing-events')
+.then(response => {
+  //console.log(response);
+  return response.json();
+})
+.then(data => {
+  let capturedElement = document.getElementById("events-container");
+  
 let cards = ``;
 
 for (let index in data.events) {
@@ -11,7 +15,7 @@ for (let index in data.events) {
   <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
   <div class="card-body">
     <h2 class="card-title">${event.name}</h2>
-    <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+    <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
   </div>
 </div>
     `;
@@ -43,8 +47,8 @@ for (let i = 0; i < categoryExist.length; i++) {
     categoryElements +
     `  <div class="categori_checkbox">
                 <div class="check">
+                <label for="${categoryExist[i]}">${categoryExist[i]}</label>
                     <input type="checkbox" id="${categoryExist[i]}" name="category" value="${categoryExist[i]}">
-                    <label for="${categoryExist[i]}">${categoryExist[i]}</label>
                 </div>
             </div>
     `;
@@ -85,10 +89,10 @@ function filterEvents(selectedCategories) {
     <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
     <div class="card-body">
       <h2 class="card-title">${event.name}</h2>
-      <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
-    </div>
-  </div>`;
-    filteredCards += cardTemplate;
+      <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+      </div>
+      </div>`;
+      filteredCards += cardTemplate;
   }
   capturedElement.innerHTML = filteredCards;
 }
@@ -97,6 +101,7 @@ function filterEvents(selectedCategories) {
 
 const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
+
 
 
 // Evento para buscar eventos al hacer clic en el botón de búsqueda
@@ -124,7 +129,7 @@ searchButton.addEventListener('click', function (event) {
           <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
           <div class="card-body">
             <h2 class="card-title">${event.name}</h2>
-            <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+            <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
           </div>
         </div>
       `;
@@ -136,26 +141,31 @@ searchButton.addEventListener('click', function (event) {
 });
 
 // Evento para mostrar todas las cards cuando se borra el contenido del campo de búsqueda
-searchInput.addEventListener('input', function () {
-  if (this.value.length === 0) {
-    showAllEvents();
-  }
-});
+searchInput.addEventListener('input', function (event) {
+  const query = event.target.value.trim().toLowerCase();
+
+  // Filtrar eventos en función de la consulta
+  const filteredEvents = data.events.filter((event) => {
+    return event.name.toLowerCase().includes(query);
+  });
 
 // Función para mostrar todas las cards
-function showAllEvents() {
-  const cards = data.events.map(function (event) {
-    return `
+let filteredCards = '';
+  for (let event of filteredEvents) {
+    let cardTemplate = `
       <div class="card bg-danger text-center" style="width: 25rem;">
-        <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
+        <img src="${event.image}" class="card-img-top border rounded" alt="${event.name}">
         <div class="card-body">
           <h2 class="card-title">${event.name}</h2>
-          <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+          <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
         </div>
-      </div>
-    `;
-  }).join('');
-
-  capturedElement.innerHTML = cards;
-
-}
+      </div>`;
+    filteredCards += cardTemplate;
+  }
+  capturedElement.innerHTML = filteredCards;
+});
+      
+      })
+      .catch(error => {
+      console.error(error);
+      });

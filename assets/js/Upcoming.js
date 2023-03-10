@@ -1,4 +1,9 @@
-import { data } from './data.js';
+fetch('https://mindhub-ab35.onrender.com/api/amazing-events')
+.then(response => {
+  //console.log(response);
+  return response.json();
+})
+.then(data => {
 
 let capturedElement = document.getElementById("Upcoming");
 let cards = ``;
@@ -96,7 +101,7 @@ function updateView(selectedCategories) {
       <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
       <div class="card-body">
         <h2 class="card-title">${event.name}</h2>
-        <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+        <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
       </div>
     </div>`;
       cards = cards + cardTemplate;
@@ -114,7 +119,7 @@ function updateView(selectedCategories) {
       <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
       <div class="card-body">
         <h2 class="card-title">${event.name}</h2>
-        <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+        <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
       </div>
     </div>`;
       cards = cards + cardTemplate;
@@ -138,7 +143,7 @@ function showAllEvents() {
         <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
         <div class="card-body">
           <h2 class="card-title">${event.name}</h2>
-          <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+          <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
         </div>
       </div>`;
       cards += cardTemplate;
@@ -166,7 +171,7 @@ function searchEvents(query) {
         <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
         <div class="card-body">
           <h2 class="card-title">${event.name}</h2>
-          <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+          <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
         </div>
       </div>`;
       cards += cardTemplate;
@@ -198,3 +203,8 @@ searchButton.addEventListener('click', event => {
 
 // Mostrar todas las cards al cargar la página
 showAllEvents();
+
+})
+.catch(error => {
+console.error(error);
+});

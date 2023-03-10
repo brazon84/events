@@ -1,5 +1,9 @@
-import { data } from './data.js';
-
+fetch('https://mindhub-ab35.onrender.com/api/amazing-events')
+.then(response => {
+  //console.log(response);
+  return response.json();
+})
+.then(data => {
 
 let capturedElement = document.getElementById("Past");
 
@@ -14,7 +18,7 @@ for (let event of data.events) {
         <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
         <div class="card-body">
           <h2 class="card-title">${event.name}</h2>
-          <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+          <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
         </div>
       </div>`;
         cards = cards + cardTemplate;
@@ -97,7 +101,7 @@ function updateView(selectedCategories) {
       <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
       <div class="card-body">
         <h2 class="card-title">${event.name}</h2>
-        <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+        <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
       </div>
     </div>`;
       cards = cards + cardTemplate;
@@ -115,7 +119,7 @@ function updateView(selectedCategories) {
       <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
       <div class="card-body">
         <h2 class="card-title">${event.name}</h2>
-        <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+        <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
       </div>
     </div>`;
       cards = cards + cardTemplate;
@@ -125,71 +129,86 @@ function updateView(selectedCategories) {
 }
 
 
+
 //! ***********SEARCH*************
 
 
 
-const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
-
-
-// Evento para buscar eventos al hacer clic en el botón de búsqueda
-searchButton.addEventListener('click', function (event) {
-  event.preventDefault(); // Evita que se recargue la página
-  const query = searchInput.value.toLowerCase().trim();
-
-  if (query.length === 0) {
-    showAllEvents();
-    return;
-  }
-
-  const searchResults = data.events.filter(function (event) {
-    return event.name.toLowerCase().includes(query);
-  });
-
-  if (searchResults.length === 0) {
-    alert('No events found.');
-    capturedElement.innerHTML = '';
-    showAllEvents();
-  } else {
-    const cards = searchResults.map(function (event) {
-      return `
-        <div class="card bg-danger text-center" style="width: 25rem;">
-          <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
-          <div class="card-body">
-            <h2 class="card-title">${event.name}</h2>
-            <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
-          </div>
-        </div>
-      `;
-    }).join('');
-
-    capturedElement.innerHTML = cards;
-
-  }
-});
-
-// Evento para mostrar todas las cards cuando se borra el contenido del campo de búsqueda
-searchInput.addEventListener('input', function () {
-  if (this.value.length === 0) {
-    showAllEvents();
-  }
-});
+const searchButton = document.getElementById('search-button');
 
 // Función para mostrar todas las cards
 function showAllEvents() {
-  const cards = data.events.map(function (event) {
-    return `
+  let cards = '';
+  for (let event of data.events) {
+    if (event.date < currentDate) {
+      let cardTemplate = `
       <div class="card bg-danger text-center" style="width: 25rem;">
         <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
         <div class="card-body">
           <h2 class="card-title">${event.name}</h2>
-          <a href="../assets/details.html?eventId=${event._id}" data-event-id="${event._id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+          <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
         </div>
-      </div>
-    `;
-  }).join('');
-
+      </div>`;
+      cards += cardTemplate;
+    }
+  }
   capturedElement.innerHTML = cards;
-
 }
+
+// Función para buscar eventos que coincidan con la consulta
+function searchEvents(query) {
+  let searchResults = '';
+  if (query) {
+    searchResults = data.events.filter(event => {
+      const name = event.name.toLowerCase();
+      return name.includes(query);
+    });
+  } else {
+    searchResults = data.events;
+  }
+  let cards = '';
+  for (let event of searchResults) {
+    if (event.date < currentDate) {
+      let cardTemplate = `
+      <div class="card bg-danger text-center" style="width: 25rem;">
+        <img src="${event.image}" class="card-img-top  border rounded" alt="${event.name}">
+        <div class="card-body">
+          <h2 class="card-title">${event.name}</h2>
+          <a href="../assets/details.html?eventId=${event.id}" data-event-id="${event.id}" class="btn btn-outline-primary btn-lg button_details">Details</a>
+        </div>
+      </div>`;
+      cards += cardTemplate;
+    }
+  }
+  if (cards) {
+    capturedElement.innerHTML = cards;
+  } else {
+    alert('No events found.');
+  }
+}
+
+// Evento para mostrar todas las cards cuando se borra el contenido del campo de búsqueda
+searchInput.addEventListener('input', () => {
+  const query = searchInput.value.toLowerCase().trim();
+  if (!query) {
+    showAllEvents();
+  } else {
+    searchEvents(query);
+  }
+});
+
+// Evento para buscar eventos cuando se hace clic en el botón de búsqueda
+searchButton.addEventListener('click', event => {
+  event.preventDefault();
+  const query = searchInput.value.toLowerCase().trim();
+  searchEvents(query);
+});
+
+// Mostrar todas las cards al cargar la página
+showAllEvents();
+
+})
+.catch(error => {
+console.error(error);
+});
