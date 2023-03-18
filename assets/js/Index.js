@@ -69,7 +69,7 @@ for (let i = 0; i < checkboxes.length; i++) {
   });
 }
 
-function filterEvents(selectedCategories) {
+function filterEvents(selectedCategories, query) {
   let filteredEvents = [];
   if (selectedCategories.length === 0) {
     // Si no se seleccionó ninguna categoría, mostrar todos los eventos

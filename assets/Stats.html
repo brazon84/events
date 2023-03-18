@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="../assets/css/Style.css">
-  <link rel="stylesheet" href="https://kit.fontawesome.com/996c26db75.css" crossorigin="anonymous">
+  <link rel="styles" href="https://kit.fontawesome.com/996c26db75.css" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>Document</title>
 </head>
@@ -44,169 +44,49 @@
       </div>
     </div>
   </nav>
-  <header>
-    <div class="title">
-      <h1>
-        Stats
-      </h1>
-    </div>
-    <div>
-      <table>
-        <tr class="title_table">
-          <th colspan="5">
-            <h2>
-              Events statistics
-            </h2>
-          </th>
-        </tr>
-        <tr>
-          <td>
-            Events with the highest percentage of attendance
-          </td>
-          <td>
-            Events with the lowest percentage of attendance
-          </td>
-          <td>
-            Event with larger capacity
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Columna 1
-          </td>
-          <td>
-            Columna 2
-          </td>
-          <td>
-            Columna 3
-          </td>
-        </tr>
-        <tr class="title_table">
-          <th colspan="5">
-            <h2>
-              Upcoming events statistics by category
-            </h2>
-          </th>
-        </tr>
-        <tr>
-          <td>
-            Categories
-          </td>
-          <td>
-            Revenues
-          </td>
-          <td>
-            Percentage of attendance
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Columna 1
-          </td>
-          <td>
-            Columna 2
-          </td>
-          <td>
-            Columna 3
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Columna 1
-          </td>
-          <td>
-            Columna 2
-          </td>
-          <td>
-            Columna 3
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Columna 1
-          </td>
-          <td>
-            Columna 2
-          </td>
-          <td>
-            Columna 3
-          </td>
-        </tr>
-        <tr class="title_table">
-          <th colspan="5">
-            <h2>
-              Past Events statistic by category
-            </h2>
-          </th>
-        </tr>
-        <tr>
-          <td>
-            Categories
-          </td>
-          <td>
-            Revenues
-          </td>
-          <td>
-            Percentage of attendance
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Columna 1
-          </td>
-          <td>
-            Columna 2
-          </td>
-          <td>
-            Columna 3
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Columna 1
-          </td>
-          <td>
-            Columna 2
-          </td>
-          <td>
-            Columna 3
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Columna 1
-          </td>
-          <td>
-            Columna 2
-          </td>
-          <td>
-            Columna 3
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Columna 1
-          </td>
-          <td>
-            Columna 2
-          </td>
-          <td>
-            Columna 3
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Columna 1
-          </td>
-          <td>
-            Columna 2
-          </td>
-          <td>
-            Columna 3
-          </td>
-        </tr>
-      </table>
-    </div>
+  <header class="stats">
+    <table class="tabla1 justify-content-center" id="tabla1">
+      <tr class="caption">
+          <th colspan="6">Event Statistics</th>
+      </tr>
+      <tr class="t-body">
+          <th class="celda1" colspan="2">Highest Percentage of Attendance</th>
+          <th class="celda2" colspan="2">Lowest Percentage of Attendance</th>
+          <th class="celda3" colspan="2">Larger Capacity</th>
+      </tr>
+      <tr class="t-body">
+          <td class="celda1" colspan="2" id="max"></td>
+          <td class="celda2" colspan="2" id="min"></td>
+          <td class="celda3" colspan="2" id="maxcapa"></td>
+      </tr>
+      <tr class="t-body">
+          <td class="celda1" colspan="2" id="maxasis">...</td>
+          <td class="celda2" colspan="2" id="minasis">...</td>
+          <td class="celda3" colspan="2" id="maxcapas">...</td>
+      </tr>
+  </table>
+
+  <table class="tabla2 justify-content-center" id="tabla2">
+      <tr class="caption">
+          <th colspan="6">Upcoming Event Statistics by Category</th>
+      </tr>
+      <tr class="t-body">
+          <th class="celda1" colspan="2">Categories</th>
+          <th class="celda2" colspan="2">Revenue</th>
+          <th class="celda3" colspan="2">Percentage of Attendance</th>
+      </tr>
+  </table>
+
+  <table class="tabla3 justify-content-center" id="tabla3">
+      <tr class="caption">
+          <th colspan="6">Past Events statistics by Category</th>
+      </tr>
+      <tr class="t-body">
+          <th class="celda1" colspan="2">Categories</th>
+          <th class="celda2" colspan="2">Revenue</th>
+          <th class="celda3" colspan="2">Percentage of Attendance</th>
+      </tr>
+  </table>
   </header>
   <footer>
     <a class="navbar-brand d-flex justify-content-center align-content-center align-items-center" href="#">
